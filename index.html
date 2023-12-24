@@ -9,6 +9,8 @@
 </head>
 
 <body>
+    <div id="preloader">
+    </div>
     <div class="quote-box">
         <h2>Quote of the day</h2>
         <blockquote id="quote">Loading...</blockquote>
@@ -22,5 +24,14 @@
     </div>
 
     <script src="script.js"></script>
+
+    <script>
+        var loader = document.getElementById("preloader");
+        window.addEventListener("load", function(){
+            loader.style.display = "none";
+        })
+    </script>
+
 </body>
+
 </html>

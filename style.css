@@ -119,3 +119,12 @@ position: relative;
   background: transparent;
   color: #333;
 }
+
+#preloader{
+  background: #ffffff url(asset/Running\ heart.gif) no-repeat center;
+  /* if the gif is very big in size then use background size : x % where is the relevant size  */
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+}
