@@ -3,10 +3,14 @@ const author = document.getElementById("author");
 const api_url = "https://api.quotable.io/random";
 
 async function getQuote(url) {
-    const response = await fetch(url);
-    var data = await response.json();
-    quote.innerHTML = data.content; // content is the key in the json file and its value pair is the quote, whereas data is the variable that stores the json file
-    author.innerHTML = data.author;
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        quote.innerHTML = data.content;  // content is the key in the json file and its value pair is the quote, whereas data is the variable that stores the json file
+        author.innerHTML = data.author;
+    } catch (error) {
+        console.error("Error fetching quote:",error);
+    } 
 }
 getQuote(api_url);
 

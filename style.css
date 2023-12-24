@@ -1,9 +1,11 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&family=Lato:ital,wght@0,400;0,700;1,700&family=Montserrat:ital,wght@0,300;0,400;1,400;1,500&family=Playfair+Display:wght@400;500;600;700&family=Roboto:ital,wght@0,400;0,500;1,400;1,500&display=swap");
 
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-family: "Playfair Display", serif;
 }
 
@@ -17,13 +19,16 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   /* it will change the position of the box to the center of the webpage */
   padding: 40px;
   border-radius: 10px;
   text-align: center;
   /* it made the text in the center of the box */
-  box-shadow: 0 10px 20px 0px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 10px 20px 0px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 10px 20px 0px rgba(0, 0, 0, 0.15);
 }
 
 .quote-box h2 {
@@ -41,7 +46,9 @@ body {
   position: absolute;
   bottom: -10px;
   left: 50%;
-  transform: translate(-50%);
+  -webkit-transform: translate(-50%);
+      -ms-transform: translate(-50%);
+          transform: translate(-50%);
 }
 
 .quote-box blockquote{
@@ -75,8 +82,12 @@ position: relative;
 .quote-box div{
   width: 100%;
   margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .quote-box button{
@@ -86,9 +97,15 @@ position: relative;
   border: 1px solid rgb(23, 124, 229);
   width: 150px;
   height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: 5px;
   cursor: pointer;
 }
