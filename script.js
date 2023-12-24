@@ -13,19 +13,26 @@ async function getQuote(url) {
         localStorage.setItem("quoteData", JSON.stringify(data));
 
     } catch (error) {
-        console.error("Error fetching quote:",error);
-    } 
+        console.error("Error fetching quote:", error);
+    }
 }
 
 function loadQuote() {
     const storedQuote = localStorage.getItem("quoteData");
-    
+
     if (storedQuote) {
         const data = JSON.parse(storedQuote);
         quote.innerHTML = data.content;
         author.innerHTML = data.author;
+    } else {
+        // Fetch a new quote when the page loads
+        getQuote(api_url);
+        // without this, the project works fine but when we open the project for the first time it shows nothing, so to avoid that we use this
+        // when the project is opened for the first time, it will fetch a new quote and store it in the local storage
+        // and when the project is opened again, it will load the quote from the local storage
     }
 }
+
 
 loadQuote();
 
