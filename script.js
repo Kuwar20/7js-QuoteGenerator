@@ -6,16 +6,31 @@ async function getQuote(url) {
     try {
         const response = await fetch(url);
         const data = await response.json();
+
         quote.innerHTML = data.content;  // content is the key in the json file and its value pair is the quote, whereas data is the variable that stores the json file
         author.innerHTML = data.author;
+
+        localStorage.setItem("quoteData", JSON.stringify(data));
+
     } catch (error) {
         console.error("Error fetching quote:",error);
     } 
 }
-getQuote(api_url);
 
+function loadQuote() {
+    const storedQuote = localStorage.getItem("quoteData");
+    
+    if (storedQuote) {
+        const data = JSON.parse(storedQuote);
+        quote.innerHTML = data.content;
+        author.innerHTML = data.author;
+    }
+}
 
-function tweetQuote(){
-    window.open("https://twitter.com/intent/tweet?text="+quote.innerHTML+" - "+author.innerHTML+"" ,
-    "Tweet Window","width=600,height=400")
+loadQuote();
+
+function tweetQuote() {
+    const textToTweet = `${quote.innerHTML} - ${author.innerHTML}`;
+    const tweetUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(textToTweet)}`;
+    window.open(tweetUrl, "Tweet Window", "width=600,height=400");
 }
